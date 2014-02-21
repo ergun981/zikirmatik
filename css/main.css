@@ -1,0 +1,852 @@
+@charset "UTF-8";
+
+
+.Zikir {
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: "" 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: 0;
+}
+
+@font-face {
+  font-family: 'GothamRndLight';
+  src: url("../fonts/GothamRnd-Light.eot");
+  src: local("☺"), url("../fonts/GothamRnd-Light.woff") format("woff"), url("../fonts/GothamRnd-Light.ttf") format("truetype"), url("../fonts/GothamRnd-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamRndBook';
+  src: url("../fonts/GothamRnd-Book.eot");
+  src: local("☺"), url("../fonts/GothamRnd-Book.woff") format("woff"), url("../fonts/GothamRnd-Book.ttf") format("truetype"), url("../fonts/GothamRnd-Book.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamRndMedium';
+  src: url("../fonts/GothamRnd-Medium.eot");
+  src: local("☺"), url("../fonts/GothamRnd-Medium.woff") format("woff"), url("../fonts/GothamRnd-Medium.ttf") format("truetype"), url("../fonts/GothamRnd-Medium.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamRndBold';
+  src: url("../fonts/GothamRnd-Bold.eot");
+  src: local("☺"), url("../fonts/GothamRnd-Bold.woff") format("woff"), url("../fonts/GothamRnd-Bold.ttf") format("truetype"), url("../fonts/GothamRnd-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "GothamRndBook", arial;
+  font-weight: 300;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.4;
+  color: #006d63;
+  background-color: #00b5a5;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  -webkit-touch-callout: none;
+  color: #fff;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 30px;
+}
+
+ul,
+ol,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+  font-weight: normal;
+  font-family: 'GothamRndMedium', arial;
+}
+
+.Push {
+  -webkit-transition: 0.33s cubic-bezier(0.694, 0.0482, 0.335, 1);
+  transition: 0.33s cubic-bezier(0.694, 0.0482, 0.335, 1);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.Navigation--open .Push {
+  -webkit-transform: translate3d(270px, 0, 0);
+  transform: translate3d(270px, 0, 0);
+}
+
+.ItemAddForm--open .Push {
+  -webkit-transform: translate3d(-270px, 0, 0);
+  transform: translate3d(-270px, 0, 0);
+}
+
+.SiteContainer {
+  position: relative;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.SiteContent {
+  z-index: 2;
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 56px;
+  text-align: center;
+  min-height: 100%;
+  overflow-y: scroll;
+  background-color: #00b5a5;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.SiteTitle,
+.Content {
+  opacity: 0;
+  -webkit-animation-name: fadeInRtL;
+  animation-name: fadeInRtL;
+  -webkit-animation-duration: 0.33s;
+  animation-duration: 0.33s;
+  -webkit-animation-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+  animation-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.SiteContent--fadeOut .SiteTitle,
+.SiteContent--fadeOut .Content {
+  -webkit-animation-name: fadeOutLtR;
+  animation-name: fadeOutLtR;
+}
+
+@-webkit-keyframes fadeInRtL {
+  0% {
+    -webkit-transform: translate3d(50px, 0, 0);
+    transform: translate3d(50px, 0, 0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRtL {
+  0% {
+    -webkit-transform: translate3d(50px, 0, 0);
+    transform: translate3d(50px, 0, 0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOutLtR {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-50px, 0, 0);
+    transform: translate3d(-50px, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutLtR {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-50px, 0, 0);
+    transform: translate3d(-50px, 0, 0);
+    opacity: 0;
+  }
+}
+
+.SiteHeader {
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  background-color: #00b5a5;
+}
+
+.SiteHeader--shadow {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.SiteTitle {
+  font-size: 22px;
+  height: 50px;
+  margin: 0 50px;
+  line-height: 52px;
+  font-family: 'GothamRndBold', arial;
+  letter-spacing: -1px;
+}
+
+.SiteHeader__icon {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  line-height: 50px;
+  text-decoration: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+}
+
+.SiteHeader__icon:active {
+  color: #005f56;
+}
+
+.SiteHeader__icon i {
+  opacity: 0;
+  -webkit-animation-duration: 0.33s;
+  animation-duration: 0.33s;
+  -webkit-animation-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+  animation-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.SiteHeader__icon--left {
+  left: 0;
+  text-align: left;
+}
+
+.SiteHeader__icon--right {
+  right: 0;
+  text-align: right;
+}
+
+[data-page="Page--register"] .FaLeft i {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+[data-page="Page--forgot"] .FaLeft i {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+[data-page="Page--zikirler"] .FaPlus i,
+[data-page="Page--katildiklarim"] .FaPlus i,
+[data-page="Page--zikirlerim"] .FaPlus i {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+[data-page="Page--zikirlerim"] .FaTrash i {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+[data-page="Page--zikir"] .FaLeft i,
+[data-page="Page--zikir"] .FaQuestion i {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+[data-page="Page--profile"] .FaCog i {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+[data-page="Page--settings"] .FaCheck i {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.Navigation--open .SiteMenu i {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.ItemAddForm--open .AddItem i {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.SiteNavigation {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100%;
+  overflow-y: scroll;
+  color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-transform: translate3d(-30px, 0, 0);
+  transform: translate3d(-30px, 0, 0);
+}
+
+.SiteNavigation li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.SiteNavigation a {
+  display: block;
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+
+.SiteNavigation a:active {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.Navigation--open .SiteNavigation {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-overflow-scrolling: touch;
+}
+
+.ItemAddForm {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 270px;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-transform: translate3d(30px, 0, 0);
+  transform: translate3d(30px, 0, 0);
+}
+
+.ItemAddForm--open .ItemAddForm {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-overflow-scrolling: touch;
+}
+
+.SiteTab {
+  z-index: 3;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px -1px 3px 0px rgba(0, 0, 0, 0.2);
+  -webkit-animation-name: fadeInBtT;
+  animation-name: fadeInBtT;
+  -webkit-animation-duration: 0.33s;
+  animation-duration: 0.33s;
+  -webkit-animation-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+  animation-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.Tab {
+  list-style: none;
+  float: left;
+  width: 25%;
+}
+
+.Tab a {
+  position: relative;
+  display: block;
+  height: 50px;
+  color: #86B0AC;
+  text-decoration: none;
+}
+
+.Tab a:active {
+  color: #005f56;
+}
+
+.Tab a i,
+.Tab a span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.Tab a i {
+  top: 7px;
+  display: block;
+  font-size: 22px;
+}
+
+.Tab a span {
+  bottom: 6px;
+  line-height: 1;
+  font-size: 11px;
+}
+
+.Tab--active a {
+  color: #006d63;
+}
+
+.Tab--hidden .SiteTab {
+  -webkit-animation-name: fadeOutTtB;
+  animation-name: fadeOutTtB;
+}
+
+@-webkit-keyframes fadeInBtT {
+  0% {
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBtT {
+  0% {
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOutTtB {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOutTtB {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+  }
+}
+
+.fa-envelope {
+  font-size: .93em !important;
+}
+
+.Button {
+  text-align: left;
+}
+
+.Button + .Button {
+  margin-top: 15px;
+}
+
+.Button a {
+  position: relative;
+  display: block;
+  padding-left: 20px;
+  padding-right: 30px;
+  height: 45px;
+  line-height: 47px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.Button a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.Button a:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.Button a .fa-angle-right {
+  content: "";
+  position: absolute;
+  right: 10px;
+  opacity: .5;
+  top: 0;
+  font-size: 30px;
+  height: inherit;
+  line-height: 45px;
+}
+
+.Button a .fa-user {
+  color: #7ce125;
+}
+
+.Button a .fa-spin {
+  display: none;
+}
+
+.Button--link a {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: transparent;
+}
+
+.Button--link a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.Button--link a:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.Button--loading .fa-spin {
+  display: inline-block !important;
+}
+
+.Button--center {
+  text-align: center;
+}
+
+.Text {
+  position: relative;
+}
+
+.Text + .Text,
+.Text + .Button {
+  margin-top: 15px;
+}
+
+.Text input[type="text"],
+.Text input[type="mail"],
+.Text input[type="password"],
+.Text textarea {
+  width: 100%;
+  padding-left: 42px;
+  height: 45px;
+  border: 0;
+  padding-top: 3px;
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.Text input[type="text"]:focus,
+.Text input[type="mail"]:focus,
+.Text input[type="password"]:focus,
+.Text textarea:focus {
+  background-color: #E7FFD0;
+}
+
+.Text input[type="text"]::-webkit-input-placeholder,
+.Text input[type="mail"]::-webkit-input-placeholder,
+.Text input[type="password"]::-webkit-input-placeholder,
+.Text textarea::-webkit-input-placeholder {
+  color: #85afac;
+  font-family: 'GothamRndLight', arial;
+}
+
+.Text input[type="text"]:-moz-placeholder,
+.Text input[type="mail"]:-moz-placeholder,
+.Text input[type="password"]:-moz-placeholder,
+.Text textarea:-moz-placeholder {
+  color: #85afac;
+  font-family: 'GothamRndLight', arial;
+}
+
+.Text input[type="text"]::-moz-placeholder,
+.Text input[type="mail"]::-moz-placeholder,
+.Text input[type="password"]::-moz-placeholder,
+.Text textarea::-moz-placeholder {
+  color: #85afac;
+  font-family: 'GothamRndLight', arial;
+}
+
+.Text input[type="text"]:-ms-input-placeholder,
+.Text input[type="mail"]:-ms-input-placeholder,
+.Text input[type="password"]:-ms-input-placeholder,
+.Text textarea:-ms-input-placeholder {
+  color: #85afac;
+  font-family: 'GothamRndLight', arial;
+}
+
+.Text i {
+  position: absolute;
+  left: 14px;
+  top: 0;
+  width: 19px;
+  height: 45px;
+  line-height: 45px;
+  color: #85afac;
+  font-size: 1.2em;
+}
+
+.List {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.List ol {
+  border-radius: 5px;
+  overflow: hidden;
+  counter-reset: say;
+}
+
+.List li {
+  position: relative;
+  color: #fff;
+}
+
+.List li + li {
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.List li:before {
+  content: counter(say) ".";
+  counter-increment: say;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  height: 45px;
+  width: 20px;
+  line-height: 47px;
+  opacity: .4;
+}
+
+.List a {
+  overflow: hidden;
+  display: block;
+  height: 45px;
+  line-height: 47px;
+  padding-right: 20px;
+  padding-left: 36px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.List a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.List a:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.List__Name {
+  float: left;
+}
+
+.List__Count {
+  float: right;
+}
+
+.Zikir__Header {
+  padding: 15px;
+}
+
+.Zikir__Footer {
+  padding: 10px 15px;
+  overflow: hidden;
+  line-height: 1;
+  background-color: #D5EBE9;
+}
+
+.Zikir__TotalOnline {
+  float: left;
+  width: 30%;
+  text-align: left;
+}
+
+.Zikir__TotalOnline .fa-user {
+  color: #7ce125;
+}
+
+.Zikir__TotalCount {
+  float: right;
+  width: 70%;
+  text-align: right;
+  font-family: 'GothamRndMedium', arial;
+}
+
+.Profil__Content {
+  padding: 20px;
+}
+
+.Profil__Name {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #d5ebe9;
+  font-size: 20px;
+}
+
+.Profil__Order {
+  margin: 10px 0;
+  opacity: .5;
+  font-size: 14px;
+}
+
+.Profil__Info {
+  opacity: .5;
+  font-size: 14px;
+}
+
+.Profil__TotalCount {
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #d5ebe9;
+}
+
+.Button--facebook a {
+  box-shadow: "" 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  background-color: #3B5998;
+}
+
+.Button--facebook a:hover {
+  background-color: #314D89;
+}
+
+.Button--facebook a:active {
+  box-shadow: none;
+  background-color: #274178;
+}
+
+.Button--mail a {
+  background-color: #fff;
+  color: #000;
+}
+
+.Button--mail a:hover {
+  background-color: #eee;
+}
+
+.Button--mail a:active {
+  background-color: #ddd;
+}
+
+.Button--login a {
+  background-color: rgba(0, 0, 0, 0.3);
+}

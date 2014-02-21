@@ -1,0 +1,31 @@
+.SiteNavigation {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $openW;
+    height: 100%;
+    overflow-y: scroll;
+    color: rgba(255,255,255,.4);
+    background-color: $openBg;
+    transform: translate3d(-30px, 0, 0);
+    li{
+        border-bottom: 1px solid rgba(255,255,255,.03);
+    }
+    a{
+        display: block;
+        padding: 0 20px;
+        height: 50px;
+        line-height: 50px;
+        color: rgba(255,255,255,.4);
+        text-decoration: none;
+        &:active{
+            background-color: rgba(0,0,0,.2);
+        }
+    }
+}
+
+.Navigation--open .SiteNavigation {
+    transform: translate3d(0, 0, 0);
+    -webkit-overflow-scrolling: touch;
+}

@@ -1,0 +1,67 @@
+$color: #006d63;
+$light: #d5ebe9;
+$online: #7ce125;
+$bg: #00b5a5;
+$orange: #FF6400;
+$ph: #85AFAC;
+$active: #005f56;
+$openBg: rgba(0, 0, 0, 0.8);
+$openW: 270px;
+
+@mixin br($r: 5px) {
+    border-radius: $r;
+}
+
+@function shadow($i: "") {
+    @return $i 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+@function white($o: 1) {
+    @return rgba(255, 255, 255, $o);
+}
+
+@function black($o: 1) {
+    @return rgba(0, 0, 0, $o);
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+%Col--white {
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: #fff;
+    @include br;
+    box-shadow: shadow();
+}
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    //user-select: none;
+    outline: 0;
+}
+
+@import "main/font";
+@import "main/global";
+@import "main/SiteHeader";
+@import "main/SiteNavigation";
+@import "main/ItemAddForm";
+@import "main/SiteTab";
+@import "main/SiteContent";

@@ -1,0 +1,122 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: "GothamRndBook", arial;
+    font-weight: 300;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.4;
+    color: $color;
+    background-color: $bg;
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    -webkit-touch-callout: none;
+    color: #fff;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+hr{
+    border: 0;
+    height: 1px;
+    background-color: white(.3);
+    margin: 30px;
+}
+
+ul, ol, p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b {
+    font-weight: normal;
+    font-family: 'GothamRndMedium', arial;
+}
+
+// PUSH ////////////////////////////////////
+
+.Push {
+    transition: 0.33s cubic-bezier(0.694, 0.0482, 0.335, 1);
+    transform: translate3d(0, 0, 0);
+}
+
+.Navigation--open .Push {
+    transform: translate3d($openW, 0, 0);
+}
+
+.ItemAddForm--open .Push {
+    transform: translate3d(-$openW, 0, 0);
+}
+
+// SKELETON ////////////////////////////////////
+
+.SiteContainer {
+    position: relative;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.SiteContent {
+    z-index: 2;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 56px;
+    text-align: center;
+    min-height: 100%;
+    overflow-y: scroll;
+    //height: 100%;
+    background-color: $bg;
+    box-shadow: 0 0 10px 0 black(0.4);
+}
+
+// CHANGE ////////////////////////////////////
+
+$fadeOut: 50px;
+
+.SiteTitle, .Content {
+    opacity: 0;
+    animation-name: fadeInRtL;
+    animation-duration: 0.33s;
+    animation-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+    animation-fill-mode: both;
+}
+
+.SiteContent--fadeOut .SiteTitle ,
+.SiteContent--fadeOut .Content {
+    animation-name: fadeOutLtR;
+}
+
+@keyframes fadeInRtL {
+    0% {
+        transform: translate3d($fadeOut, 0, 0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeOutLtR {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(-$fadeOut, 0, 0);
+        opacity: 0;
+    }
+}

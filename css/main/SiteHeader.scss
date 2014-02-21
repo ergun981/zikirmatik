@@ -1,0 +1,150 @@
+$hh: 50px;
+$hfs: 22px;
+
+.SiteHeader {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    background-color: $bg;
+}
+
+.SiteHeader--shadow {
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.SiteTitle {
+    font-size: $hfs;
+    height: $hh;
+    margin: 0 $hh;
+    line-height: $hh + 2;
+    font-family: 'GothamRndBold', arial;
+    letter-spacing: -1px;
+}
+
+// ICON SHOW-HIDE ////////////////////////////////////
+
+.SiteHeader__icon {
+    position: absolute;
+    top: 0;
+    width: $hh;
+    height: $hh;
+    font-size: $hfs;
+    line-height: $hh;
+    text-decoration: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #fff;
+    &:active {
+        color: $active;
+    }
+    i {
+        opacity: 0;
+        animation-duration: 0.33s;
+        animation-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+        animation-fill-mode: both;
+    }
+}
+
+.SiteHeader__icon--left {
+    left: 0;
+    text-align: left;
+}
+
+.SiteHeader__icon--right {
+    right: 0;
+    text-align: right;
+}
+
+[data-page="Page--login"] {}
+
+[data-page="Page--register"] {
+    .FaLeft {
+        i {
+            animation-name: fadeIn;
+        }
+    }
+}
+
+[data-page="Page--forgot"] {
+    .FaLeft {
+        i {
+            animation-name: fadeIn;
+        }
+    }
+}
+
+[data-page="Page--zikirler"],
+[data-page="Page--katildiklarim"],
+[data-page="Page--zikirlerim"] {
+    .FaPlus {
+        i {
+            animation-name: fadeIn;
+        }
+    }
+}
+
+[data-page="Page--zikirlerim"] {
+    .FaTrash {
+        i {
+            animation-name: fadeIn;
+        }
+    }
+}
+
+[data-page="Page--zikir"] {
+    .FaLeft, .FaQuestion {
+        i {
+            animation-name: fadeIn;
+        }
+    }
+}
+
+[data-page="Page--profile"] {
+    .FaCog {
+        i {
+            animation-name: fadeIn;
+        }
+    }
+}
+
+[data-page="Page--settings"] {
+    .FaCheck {
+        i {
+            animation-name: fadeIn;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.Navigation--open .SiteMenu i {
+    color: $openBg;
+}
+
+.ItemAddForm--open .AddItem i {
+    transform: rotate(45deg);
+    color: $openBg;
+}
